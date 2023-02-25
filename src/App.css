@@ -1,42 +1,64 @@
+:root {
+    --orange : hsl(26, 100%, 55%);
+    --pale-orange: hsl(25, 100%, 94%);
+    --very-dark-blue:hsl(200,13%,13%);
+    --dark-grayish-blue:hsl(219, 9%, 45%);
+    --light-grayish-blue:hsl(223, 64%, 98%);
+    --white:hsl(0,0%,100%);
+    --black: hsl(0, 0%, 0%);
+}
+* {
+    font-family: KumbhSans;
+    font-size: 16px;
+}
+@font-face {
+    font-family: KumbhSans;
+    font-weight: 400;
+    src : url("./assets/font/KumbhSans-Medium.ttf");
+}
+@font-face {
+    font-family: KumbhSans;
+    font-weight: 700;
+    src : url("./assets/font/KumbhSans-Bold.ttf");
+}
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
-
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.menu-section {
+    display: flex;
+    flex:1;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.menu-items {
+    list-style-type: none;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    color: var(--dark-grayish-blue);
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-items :hover{
+    color: var(--very-dark-blue);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.menu-items :active{
+    color: var(--very-dark-blue);
 }
-
-.card {
-  padding: 2em;
+.menu-items > li {
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor: pointer;
 }
-
-.read-the-docs {
-  color: #888;
+.cart, .avatar {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
 }
