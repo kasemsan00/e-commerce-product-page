@@ -8,7 +8,7 @@
     --black: hsl(0, 0%, 0%);
 }
 * {
-    font-family: KumbhSans;
+	font-family: KumbhSans, serif;
     font-size: 16px;
 }
 @font-face {
@@ -47,6 +47,7 @@
 }
 .menu-items :hover{
     color: var(--very-dark-blue);
+    text-decoration: underline;
 }
 .menu-items :active{
     color: var(--very-dark-blue);
@@ -62,3 +63,128 @@
     height: 60px;
     cursor: pointer;
 }
+.main-section {
+    display: flex;
+    flex: 1;
+}
+.product-picture, .product-detail {
+    width: 50%;
+    padding: 50px;
+}
+.product-detail {
+    text-align: left;
+}
+.product-detail label {
+    color: var(--orange);
+    font-weight: bold;
+}
+.product-detail h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: bold;
+}
+.product-detail p{
+    color: var(--dark-grayish-blue);
+}
+.main-picture {
+	display: flex;
+	flex: 1;
+}
+.main-picture  img {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+	cursor: pointer;
+}
+.icon-picture-next, .icon-picture-previous {
+	position: absolute;
+	margin: auto;
+	background-color: white;
+	height: 15px;
+	width: 15px;
+	border-radius: 100%;
+	padding: 10px;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+}
+.icon-picture-next {
+	align-self: center;
+}
+.sub-picture {
+    margin-top: 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    gap: 30px;
+	justify-content: center;
+}
+.sub-picture-items {
+    cursor: pointer;
+}
+.sub-picture-items img {
+    border-radius: 10px;
+    width: 100px;
+}
+.sub-picture-items :hover {
+    opacity: 0.4;
+}
+.selected {
+    outline: var(--orange) solid 3px;
+    opacity: 0.7;
+}
+.modal-backdrop {
+	position: fixed;
+	background-color: black;
+	top : 0;
+	left: 0;
+	opacity: 0.8;
+	width: 100%;
+	height: 100%;
+	z-index: 400;
+}
+.modal-section{
+    position: fixed;
+	top:0;
+	left: 0;
+    width: 100%;
+    height: 100%;
+	display: flex;
+	flex: 1;
+	justify-items: center;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-direction: column;
+	z-index: 500;
+}
+.modal-head {
+	width: 600px;
+}
+.modal-close {
+	cursor: pointer;
+	float: right;
+	margin-bottom: 10px;
+	color: var(--orange);
+	font-weight: bold;
+}
+.modal-content {
+	max-width: 600px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
