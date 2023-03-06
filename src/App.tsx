@@ -4,7 +4,7 @@ import Menu from "./components/Menu";
 import Profile from "./components/Profile";
 import Cart from "./components/Cart";
 import ProductPicture from "./components/ProductPicture/ProductPicture";
-import ProductDetail from "./components/ProductDetail";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 import ModalPicture from "./components/ProductPicture/ModalPicture";
 
 function App() {
@@ -13,8 +13,10 @@ function App() {
             <div className="menu-section">
                 <Logo />
                 <Menu />
-                <Cart />
-                <Profile />
+                <div className="menu-user">
+                    <Cart />
+                    <Profile />
+                </div>
             </div>
             <div className="main-section">
                 <ProductPicture />

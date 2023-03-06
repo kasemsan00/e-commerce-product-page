@@ -1,3 +1,5 @@
+import Price from "./Price";
+
 export default function ProductDetail() {
     return (
         <div className="product-detail">
@@ -7,6 +9,7 @@ export default function ProductDetail() {
                 These low-profile sneakers are your prefect casual wear companion. Featuring a durable rubber outer sole, they'll
                 withstand everything the weather can offer.
             </p>
+            <Price />
         </div>
     );
 }

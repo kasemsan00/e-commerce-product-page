@@ -40,18 +40,19 @@ const DisplayPicture = ({ setShowModal }: any) => {
         <>
             <div className="main-picture" onClick={handleShowModal}>
                 <div className={"icon-picture-next"} onClick={handlePreviousPicture}>
-                    <img src={"../images/icon-next.svg"} />
+                    <img alt="Next" src={"../images/icon-next.svg"} />
                 </div>
                 <div className={"icon-picture-previous"} onClick={handleNextPicture}>
-                    <img src={"../images/icon-previous.svg"} />
+                    <img alt="Previous" src={"../images/icon-previous.svg"} />
                 </div>
-                <img src={`../images/${selectImage.name}`} />
+                <img alt="Image" src={`../images/${selectImage.name}`} />
             </div>
             <div className="sub-picture">
                 {imageFile.map((image, index) => {
                     return (
                         <div key={index} className={"sub-picture-items"} onClick={() => handleSelectImage(image)}>
                             <img
+                                alt="Thumbnail"
                                 className={image.name === selectImage.name ? "selected" : ""}
                                 src={"../images/" + image.thumbnail}
                             />

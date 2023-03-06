@@ -1,7 +1,7 @@
 export default function Logo() {
     return (
         <div className={"logo"}>
-            <img src="../../public/images/logo.svg" />
+            <img alt="logo" src="../../images/logo.svg" />
         </div>
     );
 }
