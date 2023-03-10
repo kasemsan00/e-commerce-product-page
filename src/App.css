@@ -90,7 +90,14 @@
     padding: 50px;
 }
 .product-detail {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 25px;
     text-align: left;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
 }
 .product-detail label {
     color: var(--orange);
@@ -193,6 +200,9 @@
 .modal-content {
 	max-width: 600px;
 }
+.price {
+    margin-top: 10px;
+}
 .price > label {
     color: var(--dark-grayish-blue);
     text-decoration: line-through;
@@ -260,7 +270,25 @@
 .add-to-cart:hover {
     opacity: 0.5;
 }
-
+.in-cart {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    top : 0;
+    right: 0;
+    border: solid 1px black;
+    background-color: var(--white);
+    padding: 20px;
+}
+.in-cart-title{
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+}
+.in-cart-title > label {
+    font-weight: bold;
+}
 
 
 

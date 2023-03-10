@@ -1,11 +1,11 @@
 import "./App.css";
-import Logo from "./components/Logo";
-import Menu from "./components/Menu";
-import Profile from "./components/Profile";
-import Cart from "./components/Cart";
+import Logo from "./components/Menu/Logo";
+import Menu from "./components/Menu/Menu";
+import Profile from "./components/Menu/Profile";
+import Cart from "./components/Menu/Cart";
 import ProductPicture from "./components/ProductPicture/ProductPicture";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
-import ModalPicture from "./components/ProductPicture/ModalPicture";
+import InCart from "./components/Menu/InCart";
 
 function App() {
     return (
@@ -22,6 +22,7 @@ function App() {
                 <ProductPicture />
                 <ProductDetail />
             </div>
+            <InCart />
         </div>
     );
 }
