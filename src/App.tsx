@@ -22,7 +22,7 @@ function App() {
                 <ProductPicture />
                 <ProductDetail />
             </div>
-            <InCart />
+            <InCart show={false} />
         </div>
     );
 }

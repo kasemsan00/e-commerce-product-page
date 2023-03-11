@@ -1,9 +1,12 @@
 import Price from "./Price";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../store/slices/itemsSlice";
 const minValue = 1;
 const maxValue = 100;
 
 const AddItem = () => {
+    const dispatch = useDispatch();
     const [countItem, setCountItem] = useState(1);
     const handleIncreaseDecrease = (e: React.MouseEvent<HTMLSpanElement>) => {
         const indicator = (e.target as HTMLDivElement).textContent;
@@ -23,7 +26,14 @@ const AddItem = () => {
         }
     };
     const handleAddToCart = () => {
-        console.log("add to cart");
+        dispatch(
+            addItem({
+                id: 0,
+                thumbnail: "",
+                detail: "",
+                count: 10,
+            })
+        );
     };
     return (
         <div className={"add-item-section"}>
