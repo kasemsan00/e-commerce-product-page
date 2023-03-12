@@ -4,10 +4,10 @@ import itemsSlice from "./slices/itemsSlice";
 const middleware = [reduxThunk];
 
 const store = configureStore({
-    reducer: {
-        items: itemsSlice,
-    },
-    middleware,
+  reducer: {
+    items: itemsSlice,
+  },
+  middleware,
 });
 
 export default store;

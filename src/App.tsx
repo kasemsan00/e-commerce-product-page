@@ -8,23 +8,23 @@ import ProductDetail from "./components/ProductDetail/ProductDetail";
 import InCart from "./components/Menu/InCart";
 
 function App() {
-    return (
-        <div className="App">
-            <div className="menu-section">
-                <Logo />
-                <Menu />
-                <div className="menu-user">
-                    <Cart />
-                    <Profile />
-                </div>
-            </div>
-            <div className="main-section">
-                <ProductPicture />
-                <ProductDetail />
-            </div>
-            <InCart show={false} />
+  return (
+    <div className="App">
+      <div className="menu-section">
+        <Logo />
+        <Menu />
+        <div className="menu-user">
+          <Cart />
+          <Profile />
         </div>
-    );
+      </div>
+      <hr />
+      <div className="main-section">
+        <ProductPicture />
+        <ProductDetail />
+      </div>
+    </div>
+  );
 }
 
 export default App;
