@@ -1,16 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-interface item {
+interface Item {
   id: number;
   thumbnail: string;
   detail: string;
   count: number;
 }
-const initialState = {};
+const initialState: Item[] = [];
 const itemSlice = createSlice({
   name: "items",
   initialState,
   reducers: {
-    addItem(state, action: PayloadAction<item>) {
+    addItem(state, action: PayloadAction<Item>) {
       return {
         ...state,
         [action.payload.id]: {
