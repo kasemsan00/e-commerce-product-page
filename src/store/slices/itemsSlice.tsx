@@ -1,9 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface Item {
   id: number;
-  thumbnail: string;
+  title: string;
   detail: string;
+  thumbnail: string;
   count: number;
+  price: number;
+  discount: number;
+  discountPercent: string;
 }
 const initialState: Item[] = [];
 const itemSlice = createSlice({
@@ -15,8 +19,12 @@ const itemSlice = createSlice({
         ...state,
         [action.payload.id]: {
           id: action.payload.id,
+          title: action.payload.title,
           detail: action.payload.detail,
           thumbnail: action.payload.thumbnail,
+          price: action.payload.price,
+          discount: action.payload.discount,
+          discountPercent: action.payload.discountPercent,
           count: action.payload.count,
         },
       };

@@ -3,8 +3,16 @@ import { useSelector } from "react-redux";
 interface Props {
   show: boolean;
 }
+interface Item {
+  id: number;
+  title: string;
+  detail: string;
+  thumbnail: string;
+  count: number;
+}
 
 export default function InCart({ show }: Props) {
+  const items = useSelector((state: any) => state!.items);
   return (
     <div className="in-cart" style={{ display: !show ? "none" : "" }}>
       <div className="in-cart-title">
@@ -17,10 +25,10 @@ export default function InCart({ show }: Props) {
             <img alt="icon-thumbnails" src={"../images/image-product-1-thumbnail.jpg"} />
           </div>
           <div className="in-cart-item-detail">
-            <label>Fall Limited Edition Sneaker</label>
+            <label>{items[0]?.title}</label>
             <div className="price">
-              <div className={"item-count"}>$125.00 x 3</div>
-              <div className={"price-sum"}>$375.00</div>
+              <div className="item-count">$125.00 x 3</div>
+              <div className="price-sum">$375.00</div>
             </div>
           </div>
           <div className="in-cart-item-delete">

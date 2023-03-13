@@ -1,12 +1,18 @@
-export default function Price() {
+interface Props {
+  price: number;
+  discount: number;
+  discountPercent: string;
+}
+
+export default function Price({ price, discount, discountPercent }: Props) {
   return (
     <div className={"price-section"}>
       <div className={"discount"}>
-        <label className={"price-discount"}>$125.00</label>
-        <label className={"price-discount-percent"}>50%</label>
+        <label className={"price-discount"}>${discount}</label>
+        <label className={"price-discount-percent"}>{discountPercent}</label>
       </div>
       <div className={"price"}>
-        <label>$250.00</label>
+        <label>${price}</label>
       </div>
     </div>
   );
