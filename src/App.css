@@ -29,12 +29,16 @@
   text-align: center;
 }
 .hidden {
-	display: none;
+  display: none;
 }
 .logo {
   display: block;
   align-self: center;
 }
+.logo > div:nth-child(1) {
+  display: none;
+}
+
 .menu-section {
   display: flex;
   flex: 1;
@@ -65,8 +69,12 @@
   cursor: pointer;
 }
 .menu-user {
+  position: relative;
   display: flex;
   gap: 20px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 .cart {
   display: flex;
@@ -122,8 +130,8 @@
   color: var(--dark-grayish-blue);
 }
 .main-picture {
-	position: relative;
-	width: 100%;
+  position: relative;
+  width: 100%;
 }
 .main-picture img {
   border-radius: 20px;
@@ -131,22 +139,32 @@
   height: 100%;
   cursor: pointer;
 }
-.icon-picture-next,
-.icon-picture-previous {
-  position: absolute;
-  background-color: white;
+.icon-picture-previous > img,
+.icon-picture-next > img {
   height: 15px;
   width: 15px;
+}
+.icon-picture-next,
+.icon-picture-previous {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: white;
+  height: 30px;
+  width: 30px;
   border-radius: 100%;
   padding: 10px;
-	margin-top: calc(50% - 15px);
+  margin-top: calc(50% - 15px);
+  cursor: pointer;
 }
 .icon-picture-next {
-	right: 0;
-	margin-right: -15px;
+  right: 0;
+  margin-right: -20px;
 }
 .icon-picture-previous {
-	margin-left: -15px;
+  margin-left: -20px;
 }
 .sub-picture {
   margin-top: 20px;
@@ -204,6 +222,7 @@
   margin-bottom: 10px;
   color: var(--orange);
   font-weight: bold;
+  font-size: 25px;
 }
 .modal-content {
   max-width: 600px;
@@ -243,6 +262,7 @@
   width: 100px;
   padding: 10px;
   border-radius: 10px;
+  align-items: center;
 }
 .add-item-section {
   display: flex;
@@ -279,11 +299,10 @@
   opacity: 0.5;
 }
 .in-cart {
-  position: fixed;
+  position: absolute;
   width: 350px;
-  top: 130px;
-	right: 200px;
-  background-color: white;
+  top: 100px;
+  right: 0;
   border-radius: 10px;
   box-shadow: 0 -1px 28px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 -1px 28px 0 rgba(0, 0, 0, 0.4);
@@ -363,4 +382,155 @@
   color: black;
   font-weight: bold;
   margin-left: 10px;
+}
+.left-menu {
+  display: none;
+}
+.left-menu-backdrop {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #root {
+    padding: 0;
+  }
+  .left-menu-backdrop {
+    background-color: black;
+    display: none;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    z-index: 100;
+  }
+  .left-menu {
+    left: -300px;
+    top: 0;
+    position: fixed;
+    padding: 20px;
+    background-color: white;
+    width: 200px;
+    height: 100%;
+    z-index: 999;
+    transition: ease-in-out 0.3s;
+  }
+  .left-menu-close {
+    text-align: left;
+    margin-bottom: 40px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: var(--dark-grayish-blue);
+  }
+  .left-menu-list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style-type: none;
+    text-align: left;
+  }
+  .left-menu-list > li {
+    font-weight: bolder;
+  }
+  .logo {
+    display: flex;
+    gap: 10px;
+    height: fit-content;
+  }
+  .logo > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo > div:nth-child(1) {
+    display: block;
+    cursor: pointer;
+  }
+  .menu-section {
+    justify-content: space-between;
+    margin: 15px 20px 15px;
+  }
+  .menu-items {
+    display: none;
+  }
+  .avatar {
+    width: 25px;
+    height: 25px;
+  }
+  .cart > img {
+    width: 25px;
+    height: 25px;
+  }
+  .menu-user {
+    gap: 10px;
+  }
+  .main-section {
+    flex-direction: column;
+    margin-top: 0;
+  }
+  hr {
+    display: none;
+  }
+  .sub-picture {
+    display: none;
+  }
+  .main-picture img {
+    border-radius: 0;
+  }
+  .product-detail {
+    width: 100%;
+  }
+  .product-picture {
+    padding: 0;
+    width: 100%;
+  }
+  .product-detail {
+    gap: 2px;
+    padding: 25px;
+    width: fit-content;
+  }
+  .product-detail > h3 {
+    font-size: 30px;
+  }
+  .price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 20px;
+  }
+  .price {
+    margin-top: 0;
+    width: fit-content;
+  }
+  .add-item-section {
+    flex-direction: column;
+  }
+  .add-item {
+    justify-content: space-between;
+    background-color: var(--light-grayish-blue);
+    width: auto;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .add-item > span {
+    margin-top: -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
+  .add-item > input {
+    height: 30px;
+  }
+  .add-to-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 55px;
+    font-weight: bolder;
+  }
 }

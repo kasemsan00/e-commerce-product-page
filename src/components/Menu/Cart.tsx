@@ -1,18 +1,18 @@
-import InCart from "./InCart";
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowInCart } from "../../store/slices/showInCartSlice";
 
 export default function Cart() {
-  const [showInCart, setShowInCart] = useState(false);
-  const handleShowInCart = (e: React.MouseEvent<HTMLDivElement>) => {
-    setShowInCart(!showInCart);
-  };
-
+  const show = useSelector((state: any) => state.showInCart);
+  const dispatch = useDispatch();
   return (
-    <>
-      <div className="cart" onClick={handleShowInCart}>
-        <img src={"../../images/icon-cart.svg"} alt="Cart" width={30} height={30} />
-      </div>
-      <InCart show={showInCart} />
-    </>
+    <div
+      className="cart"
+      onClick={() => {
+        dispatch(setShowInCart(!show));
+      }}
+    >
+      <img src={"../../images/icon-cart.svg"} alt="Cart" width={30} height={30} />
+    </div>
   );
 }

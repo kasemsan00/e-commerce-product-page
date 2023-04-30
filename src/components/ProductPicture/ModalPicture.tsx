@@ -16,8 +16,8 @@ export default function ModalPicture({ show, setShowModal, DisplayPicture }: Pro
             X
           </div>
         </div>
-        <div className="modal-content" onClick={handleClose}>
-          <DisplayPicture setShowModal={setShowModal} />
+        <div className="modal-content">
+          <DisplayPicture showArrow={false} setShowModal={setShowModal} />
         </div>
       </div>
       <div className="modal-backdrop" style={{ display: !show ? "none" : "" }} />

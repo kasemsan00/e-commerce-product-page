@@ -1,11 +1,8 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ModalPicture from "./ModalPicture";
 
-interface Image {
-  name: string;
-  thumbnail: string;
-}
 interface DisplayPictureProps {
+  showArrow: boolean;
   setShowModal: (arg0: boolean) => void;
 }
 const imageFile = [
@@ -26,45 +23,53 @@ const imageFile = [
     thumbnail: "image-product-4-thumbnail.jpg",
   },
 ];
-const DisplayPicture = ({ setShowModal }: DisplayPictureProps) => {
+const DisplayPicture = ({ showArrow, setShowModal }: DisplayPictureProps) => {
   const previousArrowRef = useRef<HTMLDivElement>(null);
   const nextArrowRef = useRef<HTMLDivElement>(null);
   const [selectImageIndex, setSelectImageIndex] = useState(0);
   const [selectImage, setSelectImage] = useState(imageFile[selectImageIndex]);
-  const handleSelectImage = (image: Image) => {
-    setSelectImage(image);
+  const handleSelectImage = (index: number) => {
+    setSelectImageIndex(index);
   };
-  const handleNextPicture = () => {
+  const handleClickNextPicture = () => {
     setSelectImageIndex((state) => state + 1);
   };
-  const handlePreviousPicture = () => {};
-  const handleControlPicture = (event: string) => {
-    if (event === "MouseOver") {
-      nextArrowRef.current?.classList.remove("hidden");
-      previousArrowRef.current?.classList.remove("hidden");
-    }
-    if (event === "MouseLeave") {
-      nextArrowRef.current?.classList.add("hidden");
-      previousArrowRef.current?.classList.add("hidden");
-    }
+  const handleClickPreviousPicture = () => {
+    setSelectImageIndex((state) => state - 1);
   };
+  useEffect(() => {
+    if (selectImageIndex > imageFile.length - 1) {
+      setSelectImageIndex(imageFile.length - 1);
+      return;
+    }
+    if (selectImageIndex < 0) {
+      setSelectImageIndex(0);
+      return;
+    }
+    setSelectImage(imageFile[selectImageIndex]);
+  }, [selectImageIndex]);
+
   return (
     <>
       <div className="main-picture" onClick={() => setShowModal(true)}>
-        <div ref={previousArrowRef} className="icon-picture-next hidden" onClick={handlePreviousPicture}>
-          <img alt="Next" src={"../images/icon-next.svg"} />
-        </div>
-        <div ref={nextArrowRef} className="icon-picture-previous hidden" onClick={handleNextPicture}>
-          <img alt="Previous" src={"../images/icon-previous.svg"} />
-        </div>
-        <div onMouseOver={() => handleControlPicture("MouseOver")} onMouseLeave={() => handleControlPicture("MouseLeave")}>
+        {!showArrow ? (
+          <>
+            <div ref={previousArrowRef} className="icon-picture-next" onClick={handleClickNextPicture}>
+              <img alt="Next" src={"../images/icon-next.svg"} />
+            </div>
+            <div ref={nextArrowRef} className="icon-picture-previous" onClick={handleClickPreviousPicture}>
+              <img alt="Previous" src={"../images/icon-previous.svg"} />
+            </div>
+          </>
+        ) : null}
+        <div>
           <img alt="Image" src={`../images/${selectImage.name}`} />
         </div>
       </div>
       <div className="sub-picture">
         {imageFile.map((image, index) => {
           return (
-            <div key={index} className={"sub-picture-items"} onClick={() => handleSelectImage(image)}>
+            <div key={index} className={"sub-picture-items"} onClick={() => handleSelectImage(index)}>
               <img
                 alt="Thumbnail"
                 className={image.name === selectImage.name ? "selected" : ""}
@@ -85,7 +90,7 @@ export default function ProductPicture() {
     <>
       <ModalPicture show={showModal} setShowModal={setShowModal} DisplayPicture={DisplayPicture} />
       <div className="product-picture">
-        <DisplayPicture setShowModal={setShowModal} />
+        <DisplayPicture showArrow={true} setShowModal={setShowModal} />
       </div>
     </>
   );

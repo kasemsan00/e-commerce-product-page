@@ -1,8 +1,5 @@
 import { useSelector } from "react-redux";
 
-interface Props {
-  show: boolean;
-}
 interface Item {
   id: number;
   title: string;
@@ -11,7 +8,8 @@ interface Item {
   count: number;
 }
 
-export default function InCart({ show }: Props) {
+export default function InCart() {
+  const show = useSelector((state: any) => state.showInCart);
   const items = useSelector((state: any) => state!.items);
   return (
     <div className="in-cart" style={{ display: !show ? "none" : "" }}>
